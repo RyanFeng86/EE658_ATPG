@@ -1,0 +1,4 @@
+Algorithm: DALG
+Circuit: c3
+Fault Coverage: 81.82%
+Time: 0 seconds

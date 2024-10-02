@@ -1,0 +1,58 @@
+ATPG_DET (RYAN)
+1. Find reduced fault list
+	run RFL (gives us checkpoint fault list)
+2. call ATPG on each fault and build list of vectors
+3. remove redundancies
+4. calculate FC
+	run PFS on circuit (which gives us list of faults covered by our generated vectors
+	FC = (#faults in pfs fault list) / (total num of faults possible)
+			tot faults = Nnodes * 2
+	
+
+
+ATPG (LUKE, ARPITA, and SHRYA)
+1. RTG for saturation (look at phase 2 graph under RTG)
+RTG but instead of n test patterns, we take difference between last and current FC
+	if FC(n) - (FC(n) - FC(n-1)) - (FC(n) - FC(n-2)) < .1 exit
+2.  foreach checkpoint not in fault list
+	- D-ALG or PODEM for each uncovered checkpoint
+	- run PFS or DFS on the checkpoints not covered (change X to 1 or 0)
+		- calc new fault coverage
+3. if checkpoint cannot be covered, do ATPG for fin/fout
+remember to remove duplicate vectors"
+
+
+CODING LIST:
+1. build modified RTG that exits upon saturation (defined above)
+	- use PFS for generated list
+	- verify with DFS during testing
+2. run D-alg or PODEM and add function to replace X with 1 or 0
+3. modified FC calculation with new atpg vector
+4. algorithm for fout gates (need some way to test this too)
+
+
+PRESENTATION TASKS:
+PART 1: MAIN GOAL
+	generally outline why we need ATPG
+	bring in parts if first lecture. 
+	brief overview of ATPG needs in industry
+PART 2: OUR APPROACH
+	least amount of computational work for highest fault coverage with 
+		lowest number of test vectors.
+	multivariable maximization/minimization problem. (computational work/FC/#vectors)
+	state machine flow chart of our ATPG
+		*reference above ATPG
+	What parts we used in our ATPG. 
+		- explain how each part works
+	Why we chose our exit conditions for each state (FC/ time??)
+		balanced coverage amount with time etc.
+PART 3: RESULTS
+	Case 1: for small circuit (c17) we were able to get 100% fast (no need for ATPG?)
+		- or only ran ATPG on checkpoints (based on sim time)
+	Case 2: x3mult/add2. med size circuit 
+		- had to use RTG for 5 seconds (93%) and then ATPG finished with 100% in 15 seconds
+	Case 3: c1355.ckt (big boi circuit)
+		- RTG ran for > 65% FC (1 minuite) and then ATPG to get to 99% after 4 minutes.
+
+
+		

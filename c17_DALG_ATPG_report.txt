@@ -1,0 +1,4 @@
+Algorithm:DALG
+Circuit:c17
+Fault Coverage:100%
+Time:0 seconds

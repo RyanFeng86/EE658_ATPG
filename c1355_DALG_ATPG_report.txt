@@ -1,0 +1,4 @@
+Algorithm:DALG
+Circuit:c1355
+Fault Coverage:89.4096%
+Time:10048.3 seconds

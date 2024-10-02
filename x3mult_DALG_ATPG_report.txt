@@ -1,0 +1,4 @@
+Algorithm: DALG
+Circuit: x3mult
+Fault Coverage: 96.25%
+Time: 0 seconds

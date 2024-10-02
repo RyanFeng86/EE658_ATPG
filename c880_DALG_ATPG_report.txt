@@ -1,0 +1,4 @@
+Algorithm: DALG
+Circuit: c880
+Fault Coverage: 98.90%
+Time: 22 seconds
